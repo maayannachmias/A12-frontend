@@ -58,7 +58,7 @@ const Login = () => {
                             Sign in to your TicTacTask account
                         </h2>
                         {/* Sign In Form */}
-                        <form className="mt-8 space-y-6" onSubmit={handleSubmit} method="POST">
+                        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                             {/* Email Input */}
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
