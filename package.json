@@ -1,5 +1,5 @@
 {
-  "proxy": "https://tictactask-app-api.onrender.com",
+  "proxy": "https://tictactask-app.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
