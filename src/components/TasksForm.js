@@ -14,6 +14,8 @@ import {
 
 import "../style/App.css";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 const TaskForm = ({ isOpen, onClose }) => {
   const { dispatch } = useTasksContext();
   const { user } = useAuthContext();
@@ -60,7 +62,7 @@ const TaskForm = ({ isOpen, onClose }) => {
       priority,
     };
 
-    const response = await fetch("/api/tasks", {
+    const response = await fetch(`${BACKEND_URL}/api/tasks`, {
       method: "POST",
       body: JSON.stringify(task),
       headers: {

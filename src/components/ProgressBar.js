@@ -3,7 +3,7 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Progress, Typography } from "@material-tailwind/react";
 
-
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const ProgressBar = () => {
   const { tasks, dispatch } = useTasksContext();
   const { user } = useAuthContext();
@@ -13,7 +13,7 @@ const ProgressBar = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks", {
+      const response = await fetch(`${BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

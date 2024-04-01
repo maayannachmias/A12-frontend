@@ -9,6 +9,8 @@ import tLetter from '../assets/bigLogo.png'
 import TaskDetails from "../components/TaskDetails";
 import TaskForm from "../components/TasksForm";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 const MyTasks = () => {
   const { tasks, dispatch } = useTasksContext();
   const { user } = useAuthContext();
@@ -18,7 +20,7 @@ const MyTasks = () => {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks", {
+      const response = await fetch(`${BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
