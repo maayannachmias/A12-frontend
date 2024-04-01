@@ -129,13 +129,13 @@ const TaskForm = ({ isOpen, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="relative top-20 mx-auto py-4 px-3 bg-violet-800 rounded-lg shadow-lg p-2 dark:bg-violet-500 max-w-lg"
+        className="relative top-20 mx-auto py-4 px-3 bg-violet-800 rounded-lg shadow-lg p-2 dark:bg-violet-200 max-w-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className=" bg-violet-100 shadow-lg rounded-lg p-4 h-full">
+        <div className=" dark:bg-violet-900 bg-violet-200 shadow-lg rounded-lg p-4 h-full">
           <div className="flex justify-between">
 
-          <p className="text-xl drop-shadow-md font-semibold text-violet-900 text-center">
+          <p className="text-xl drop-shadow-md font-semibold text-violet-900 dark:text-white text-center">
               Add New Task
             </p>
           <button
@@ -276,7 +276,7 @@ const TaskForm = ({ isOpen, onClose }) => {
             <div className="flex justify-center mt-5">
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-purple-700 py-2 px-4 text-sm font-medium text-white hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-purple-700 dark:bg-purple-200 dark:text-purple-800 py-2 px-4 text-sm font-medium text-white hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                 Add Task
               </button>
