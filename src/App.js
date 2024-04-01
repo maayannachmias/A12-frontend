@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={!user ? <MainPage /> : <Navigate to="/mytasks" />}
+          element={/*!user ? <MainPage /> :*/ <Navigate to="/mytasks" />}
         />
         <Route
           path="/login"
