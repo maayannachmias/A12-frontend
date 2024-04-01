@@ -12,7 +12,7 @@ import { useState } from "react";
 
 function App() {
   const { user } = useAuthContext();
-  const [sideBarToggle, setSideBarToggle] = useState(false);
+  const [sideBarToggle, setSideBarToggle] = useState(true);
 
   return (
     <BrowserRouter>
@@ -36,7 +36,7 @@ function App() {
               <div className="flex">
                 <SideBar sideBarToggle={sideBarToggle} />
                 <Dashboard
-                  sideBarToggle={sideBarToggle}
+                  sideBarToggle={!sideBarToggle}
                   setSideBarToggle={setSideBarToggle}
                 />
               </div>

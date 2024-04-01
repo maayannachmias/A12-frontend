@@ -37,21 +37,21 @@ const Navbar = ({ sideBarToggle, setSideBarToggle }) => {
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <nav className=" bg-violet-200 dark:bg-violet-950 px-4 py-3 flex justify-between">
-      <div className="flex items-center text-xl">
+    <nav className=" bg-violet-200 dark:bg-violet-950 px-4 py-3 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+      <div className="flex justify-start items-center text-xl">
         <FaBars
-          className="text-violet-950 dark:text-violet-300 dark:hover:text-violet-200 me-4 cursor-pointer hover:text-violet-800"
-          onClick={() => setSideBarToggle(!sideBarToggle)}
+          className={`${sideBarToggle ? "fixed left-4" : ""} text-violet-950 dark:text-violet-300 dark:hover:text-violet-200 me-4 cursor-pointer hover:text-violet-800`}
+          onClick={() => setSideBarToggle(sideBarToggle)}
         ></FaBars>
       </div>
-
+      
       <img
         alt="tictactask"
-        className="size-1/10 flex invisible lg:visible"
+        className="h-8 lg:h-10 self-center mx-auto flex invisible lg:visible"
         src={ticTacTask}
       />
 
-      <div className="flex items-center gap-x-5">
+      <div className="fixed right-4 flex items-center gap-x-5">
         <button onClick={toggleDarkMode} aria-label="Toggle Dark Mode">
           <div className="w-10 h-5 bg-slate-300 rounded-full px-0.5 dark:bg-slate-700 relative flex items-center dark:justify-end">
             <div className="w-4 h-4 rounded-full bg-violet-600 absolute"></div>

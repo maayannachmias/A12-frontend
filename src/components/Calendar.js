@@ -4,8 +4,12 @@ import "../style/Calendar.css";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import TaskDetails from "./TaskDetails";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+import { CgCalendarToday } from "react-icons/cg";
+
+
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -14,6 +18,7 @@ const Calendar = () => {
   const [selectedTask, setSelectedTask] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isFadeIn, setIsFadeIn] = useState(false);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -86,30 +91,32 @@ const Calendar = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
-      <div className="flex items-center justify-between mb-4">
-        <button className="text-gray-600 hover:text-gray-700 dark:hover:text-white transition" onClick={navigateToPrev}>
-          Prev
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-2 sm:p-4">
+      <div className="flex flex-wrap items-center justify-between mb-4 gap-2">
+        <button className="text-gray-600 hover:text-gray-700 dark:hover:text-white transition text-sm sm:text-base" onClick={navigateToPrev}>
+        <FaArrowLeft />
         </button>
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-white">{format(currentDate, "MMMM yyyy")}</h2>
-        <button className="text-gray-600 hover:text-gray-700 dark:hover:text-white transition" onClick={navigateToNext}>
-          Next
-        </button>
-        <button className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition" onClick={navigateToToday}>
-          Today
-        </button>
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white text-center flex-1">{format(currentDate, "MMMM yyyy")}</h2>
+        <div className="flex flex-wrap gap-2">
+          <button className="text-gray-600 hover:text-gray-700 dark:hover:text-white transition text-sm sm:text-base" onClick={navigateToNext}>
+          <FaArrowRight />
+          </button>
+          <button className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition text-sm sm:text-base" onClick={navigateToToday}>
+          <CgCalendarToday />
+          </button>
         <div className="flex items-center">
           <label htmlFor="datepicker" className="text-sm text-gray-600 dark:text-gray-400 mr-2">Go to Date:</label>
           <input
             type="date"
             id="datepicker"
-            className="p-2 border rounded"
+            className="p-1 sm:p-2 border rounded text-xs sm:text-sm"
             value={format(currentDate, "yyyy-MM-dd")}
             onChange={(e) => navigateToDate(new Date(e.target.value))}
           />
         </div>
+        </div>
       </div>
-      <div className="grid grid-cols-7 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2">
         {days.map((day) => (
           <div
             key={day.toString()}
@@ -125,7 +132,7 @@ const Calendar = () => {
                   onClick={() => handleTaskClick(task)}
                 >
                   {task.title}
-                  {task.isCompleted && <span className="material-icons">check</span>}
+                  {task.isCompleted && <span className="material-icons"></span>}
                 </button>
               ))}
             </div>

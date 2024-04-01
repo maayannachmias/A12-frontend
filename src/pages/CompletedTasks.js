@@ -3,14 +3,12 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { BiSortAlt2 } from "react-icons/bi";
 import { FaFilter } from "react-icons/fa";
+import { BiSolidCategoryAlt } from "react-icons/bi";
 import tLetter from "../assets/bigLogo.png";
 
 // Components
 import TaskDetails from "../components/TaskDetails";
-import TaskFrom from "../components/TasksForm";
-import NoTasksImage from "../assets/no-finished-tasks-image.png"; // Import the image
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+import TaskForm from "../components/TasksForm";
 
 const CompletedTasks = () => {
   const { tasks, dispatch } = useTasksContext();
@@ -18,7 +16,8 @@ const CompletedTasks = () => {
   const [sortBy, setSortBy] = useState("");
   const [selectByPriority, setSortByPriority] = useState(""); // State for sorting by priority
   const [selectByType, setSortByType] = useState(""); // State for sorting by type
-
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  
   useEffect(() => {
     const fetchTasks = async () => {
       const response = await fetch(`${BACKEND_URL}/api/tasks`, {
@@ -79,11 +78,11 @@ const CompletedTasks = () => {
     <div className="min-h-screen bg-purple-50 dark:bg-slate-800 p-4">
       <div className="flex justify-between mt-4 bg-purple-50 dark:bg-slate-800 p-4 mb-3">
         <div className="flex">
-          <BiSortAlt2 className="dark:fill-purple-100 inline-block w-6 h-6 mr-1 mt-2" />
+          <BiSortAlt2 className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 mr-1 mt-2" />
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 text-sm lg:text-lg w-2 lg:w-40"
           >
             <option value="">Sort By...</option>
             <option value="title-asc">A-Z</option>
@@ -94,11 +93,11 @@ const CompletedTasks = () => {
         </div>
 
         <div className="flex gap-x-4">
-          <FaFilter className="dark:fill-purple-100 inline-block w-6 h-6 -mr-1 mt-2" />
+          <FaFilter className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 -mr-1 mt-2" />
           <select
             value={selectByPriority}
             onChange={(e) => setSortByPriority(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2 lg:w-40"
           >
             <option value="">Priority</option>
             <option value="low">Low</option>
@@ -106,10 +105,11 @@ const CompletedTasks = () => {
             <option value="high">High</option>
           </select>
 
+          <BiSolidCategoryAlt className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 -mr-1 mt-2" />
           <select
             value={selectByType}
             onChange={(e) => setSortByType(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2 lg:w-40"
           >
             <option value="">Category</option>
             <option value="personal">Personal</option>
@@ -119,15 +119,18 @@ const CompletedTasks = () => {
           </select>
           <button
             onClick={clearSearch}
-            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+            className="px-2 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
           >
-            Clear Search
+            Clear
           </button>
         </div>
       </div>
+
+      <TaskForm/>
+
       {sortedTasks().filter((task) => task.isCompleted).length == 0 ? (
         <div>
-          <img src={tLetter} className="mx-auto opacity-50" />
+          <img src={tLetter} className="mx-auto" />
           {/* This is when no tasks page */}
         </div>
       ) : (

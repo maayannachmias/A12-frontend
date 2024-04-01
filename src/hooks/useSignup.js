@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const signup = async (email, password, fullName, age) => {
     setIsLoading(true);

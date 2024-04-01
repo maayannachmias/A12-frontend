@@ -21,14 +21,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Radio, Input} from "@material-tailwind/react";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
 const TaskDetails = ({ task, onClose }) => {
   const { dispatch } = useTasksContext();
   const { user } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false); // Track whether the task is being edited
   const [editedTask, setEditedTask] = useState(task); // Store the edited task details
-
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [titleError, setTitleError] = useState("");
 
   const handleDelete = async () => {

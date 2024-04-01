@@ -58,7 +58,7 @@ const Login = () => {
                             Sign in to your TicTacTask account
                         </h2>
                         {/* Sign In Form */}
-                        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                        <form className="mt-8 space-y-6" onSubmit={handleSubmit} method="POST">
                             {/* Email Input */}
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
@@ -106,7 +106,7 @@ const Login = () => {
                                     type="submit"
                                     className="group relative flex w-full justify-center rounded-md border border-transparent bg-purple-700 py-2 px-4 text-sm font-medium text-white hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
-                                    Log in
+                                    Sign in
                                 </button>
                                  {error && <div className="error">{error}</div>}
 

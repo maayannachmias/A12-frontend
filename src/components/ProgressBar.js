@@ -3,13 +3,14 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Progress, Typography } from "@material-tailwind/react";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 const ProgressBar = () => {
   const { tasks, dispatch } = useTasksContext();
   const { user } = useAuthContext();
   const allTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
-  const percentage = Math.round((completedTasks / allTasks) * 100);
+  const percentage = completedTasks==0 ? 0 : Math.round((completedTasks / allTasks) * 100) ;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchTasks = async () => {

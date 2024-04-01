@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d88bc7c0.css",
+    "main.js": "/static/js/main.f52d635b.js",
+    "static/media/Wavy_Bus-03_Single-06.png": "/static/media/Wavy_Bus-03_Single-06.d7bcf5118503c7b5a461.png",
+    "static/media/bigLogo.png": "/static/media/bigLogo.d04afda8a4e9eb64c1df.png",
+    "static/media/no-finished-tasks-image.png": "/static/media/no-finished-tasks-image.055c4e7f5c45242b8990.png",
+    "static/media/t_letter.png": "/static/media/t_letter.88d22c087b11a3743bbb.png",
+    "static/media/tictactask.png": "/static/media/tictactask.00fe902fa91edfb5594d.png",
+    "index.html": "/index.html",
+    "main.d88bc7c0.css.map": "/static/css/main.d88bc7c0.css.map",
+    "main.f52d635b.js.map": "/static/js/main.f52d635b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d88bc7c0.css",
+    "static/js/main.f52d635b.js"
+  ]
+}

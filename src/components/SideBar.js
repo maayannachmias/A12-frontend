@@ -13,9 +13,9 @@ const SideBar = ({sideBarToggle}) => {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <div className={`${sideBarToggle? "hidden" : "block"} w-64 bg-gray-100 dark:bg-slate-900 fixed h-full dark:text-white px-4 py-2`}>
+    <div className={`${sideBarToggle? "hidden lg:block" : "block lg:hidden"}  w-64 bg-gray-100 dark:bg-slate-900 fixed h-full dark:text-white px-4 py-2`}>
       <div>
-        <img src={tLetter} className='w-20 mx-auto mt-10 mb-6' alt='Logo'/>
+        <img src={tLetter} className='w-20 mx-auto mt-24 mb-6' alt='Logo'/>
         <hr />
         <ul className='mt-3'>
         <li className='cursor-pointer mt-2 mb-9 text-violet-900 dark:text-violet-300 rounded hover:shadow hover:bg-violet-800 hover:text-white py-2 dark:hover:bg-violet-400 dark:hover:text-violet-950'
@@ -44,11 +44,11 @@ const SideBar = ({sideBarToggle}) => {
           <li className='mb-2 rounded hover:shadow hover:bg-violet-800 hover:text-white py-2 dark:hover:bg-violet-400 dark:hover:text-violet-950'>
             <Link to="/shareddoc" className='px-3'>
               <FaRegShareSquare  className='inline-block w-6 h-6 mr-2 -mt-2'></FaRegShareSquare>
-              New Shared Document
+              Shared Documents
             </Link>
           </li>
         </ul>
-        <TaskForm isOpen={isModalOpen} onClose={toggleModal} />
+        <TaskForm isOpen={isModalOpen} onClose={toggleModal}/>
         <ProgressBar/>
       </div>
 

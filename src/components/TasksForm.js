@@ -14,8 +14,6 @@ import {
 
 import "../style/App.css";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
 const TaskForm = ({ isOpen, onClose }) => {
   const { dispatch } = useTasksContext();
   const { user } = useAuthContext();
@@ -27,6 +25,7 @@ const TaskForm = ({ isOpen, onClose }) => {
   const [priority, setPriority] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
     // Auto-clear error message after 3 seconds
     useEffect(() => {
@@ -136,7 +135,7 @@ const TaskForm = ({ isOpen, onClose }) => {
         <div className=" bg-violet-100 shadow-lg rounded-lg p-4 h-full">
           <div className="flex justify-between">
 
-          <p className="text-xl drop-shadow-md font-semibold text-violet-900 dark:text-white text-center">
+          <p className="text-xl drop-shadow-md font-semibold text-violet-900 text-center">
               Add New Task
             </p>
           <button

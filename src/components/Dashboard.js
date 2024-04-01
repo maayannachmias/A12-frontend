@@ -14,7 +14,7 @@ const Dashboard = ({sideBarToggle, setSideBarToggle}) => {
   const { user } = useAuthContext();
 
   return (
-    <div className={`${sideBarToggle ? "" : " md:ml-64 "} w-full`}> {/* this is the main compartment */}
+    <div className={`${sideBarToggle ? "" : " lg:ml-64 "} mt-14 w-full`}> {/* this is the main compartment */}
       {user && <Navbar
         sideBarToggle={sideBarToggle}
         setSideBarToggle={setSideBarToggle}/>
