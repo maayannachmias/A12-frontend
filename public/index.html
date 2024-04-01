@@ -40,5 +40,33 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="module" src="../src/index.js"></script>
+    <script>
+      // custom config for the MTW app 
+      const mtwAppConfig = {
+          border: true // app border in the MTW page                    
+      }
+
+      ///////////////////////////////////////////////////////
+      // implement this functions in order to use private API        
+      const sendPrivateApiRequest = async () => {
+          // your code here:
+          // sendRequestToParent({ cat: 'getAssets' })
+      }        
+
+      const acceptPrivateApiResponse = async (data) => {
+          // process received data here:
+          // console.log(data)
+      }
+
+      // use this in order to send on document load
+      document.addEventListener('DOMContentLoaded', () => {
+          // your code here:
+          //sendRequestToParent({ method: 'getAssets' })
+      })
+
+  </script>
+  <script src="https://morethanwallet.com/appstore/index.js"></script>
+
   </body>
 </html>
